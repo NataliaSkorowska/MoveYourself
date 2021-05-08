@@ -314,16 +314,7 @@ public class StartFrame extends javax.swing.JFrame {
         String email = jTextField_email.getText();
         String pass = String.valueOf(jPasswordField_login.getPassword());
         
-         if(email.equals("admin") && pass.equals("admin"))
-        {
-        AdminGlownaFrame agf = new AdminGlownaFrame();
-        agf.setVisible(true);
-        agf.pack();
-        agf.setLocationRelativeTo(null);
-        agf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.dispose();
-        }
-        
+       
         if(email.equals(""))
         {
             JOptionPane.showMessageDialog(null,"Proszę podać email");
@@ -359,7 +350,7 @@ public class StartFrame extends javax.swing.JFrame {
                 this.dispose();
             }
           
-            if(rs2.next())
+            else if(rs2.next())
             {
                 AdminGlownaFrame agf = new AdminGlownaFrame();
                 agf.setVisible(true);
