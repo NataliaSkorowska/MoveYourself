@@ -59,30 +59,31 @@
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="295" max="32767" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                           <Component id="jButton_back" min="-2" pref="101" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jButton_addTraining" min="-2" pref="123" max="-2" attributes="0"/>
-                              <Component id="jButton_viewTrainings" min="-2" pref="123" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="167" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jButton_addMember" max="32767" attributes="0"/>
-                              <Component id="jButton_viewMembers" pref="131" max="32767" attributes="0"/>
+                              <Component id="jButton_addTraining" pref="123" max="32767" attributes="0"/>
+                              <Component id="jButton_viewTrainings" pref="123" max="32767" attributes="0"/>
                           </Group>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="297" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Component id="jButton_viewReservation" min="-2" pref="128" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jButton_addMember" pref="131" max="32767" attributes="0"/>
+                      <Component id="jButton_viewMembers" pref="131" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -94,26 +95,25 @@
                   <Component id="jLabel2" min="-2" pref="38" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="43" max="32767" attributes="0"/>
+                  <EmptySpace pref="35" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jButton_viewTrainings" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
                       <Component id="jButton_viewMembers" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
+                      <Component id="jButton_viewTrainings" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                  <Component id="jButton_viewReservation" min="-2" pref="47" max="-2" attributes="0"/>
+                  <EmptySpace pref="18" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton_viewReservation" min="-2" pref="47" max="-2" attributes="0"/>
-                          <EmptySpace pref="52" max="32767" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
                           <Component id="jButton_back" min="-2" pref="41" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jButton_addTraining" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
                               <Component id="jButton_addMember" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
+                              <Component id="jButton_addTraining" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -273,6 +273,9 @@
               <Color id="Hand Cursor"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_viewReservationActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton_viewMembers">
           <Properties>

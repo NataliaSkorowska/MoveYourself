@@ -7,8 +7,7 @@ package ug.frontend;
 
 import com.sun.jdi.connect.spi.Connection;
 import java.beans.Statement;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -26,25 +25,30 @@ public class ZobaczKlientowFrame extends javax.swing.JFrame {
     public ZobaczKlientowFrame() {
         initComponents();
         this.setLocationRelativeTo(null);
+ 
+
+        java.sql.Connection con;
         DefaultTableModel model = (DefaultTableModel)jTable_members.getModel();
-        PreparedStatement ps;
+        CallableStatement cs;
         ResultSet rs;
-        String query = "SELECT * FROM [dbo].[Klient]";
+        
         try{
-             ps = BazaDanych.getConnection().prepareStatement(query);
-              
-            rs = ps.executeQuery();
+            
+            con = DriverManager.getConnection("jdbc:sqlserver://localhost;databaseName=MoveYourself",
+                    "s2232","s2232");
+            cs = con.prepareCall("{call dbo.pobierzKlientów()}");
+            rs = cs.executeQuery();
+            
             
             while(rs.next())
             {
-                model.addRow(new Object[]{rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4)});
+                model.addRow(new Object[]{rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4), rs.getString(6)});
             }
+            
         }catch(Exception e)
         {
             JOptionPane.showMessageDialog(null,e);
-        }
-        
-        
+        }    
     }
 
     /**
@@ -258,7 +262,7 @@ public class ZobaczKlientowFrame extends javax.swing.JFrame {
             }
         });
     }
-
+private BazaDanych bd;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_back;
     private javax.swing.JLabel jLabel1;

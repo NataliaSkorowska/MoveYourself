@@ -358,11 +358,11 @@ public class RejestracjaFrame extends javax.swing.JFrame {
              if(cs.executeUpdate() > 0)
                 {
                 JOptionPane.showMessageDialog(null,"Gratulujemy! Rejestracja przebiegła poprawnie");
-                MojeDaneFrame mdf = new MojeDaneFrame();
-                mdf.setVisible(true);
-                mdf.pack();
-                mdf.setLocationRelativeTo(null);
-                mdf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                KlientGlownaFrame kgf = new KlientGlownaFrame();
+                kgf.setVisible(true);
+                kgf.pack();
+                kgf.setLocationRelativeTo(null);
+                kgf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 this.dispose(); 
                 
                 }

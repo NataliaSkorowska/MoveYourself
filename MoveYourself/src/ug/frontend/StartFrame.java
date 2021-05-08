@@ -20,7 +20,7 @@ public class StartFrame extends javax.swing.JFrame {
 
     private final ZajeciaFrame zf;
     //private final MojeZajeciaFrame mzf;
-    private final MojeDaneFrame mdf;
+    
     private final RejestracjaFrame rf;
     private final AdminGlownaFrame agf;
     private final ZobaczKlientowFrame zkf;
@@ -38,9 +38,7 @@ public class StartFrame extends javax.swing.JFrame {
         //mzf.setTitle("Moje zajęcia");
         //mzf.setSize(640,480);
         
-        mdf = new MojeDaneFrame();
-        mdf.setTitle("Moje dane");
-        mdf.setSize(800,450);
+       
 
         zf = new ZajeciaFrame();
         zf.setTitle("Zajęcia");
@@ -342,6 +340,8 @@ public class StartFrame extends javax.swing.JFrame {
            
             if(rs.next())
             {       
+                Integer id = rs.getInt("klient_id");
+                idLogowanie = id;
                 MojeDaneFrame mdf = new MojeDaneFrame();
                 mdf.setVisible(true);
                 mdf.pack();
@@ -429,4 +429,6 @@ public class StartFrame extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordField_login;
     private javax.swing.JTextField jTextField_email;
     // End of variables declaration//GEN-END:variables
+private BazaDanych bd;
+public static int idLogowanie;
 }

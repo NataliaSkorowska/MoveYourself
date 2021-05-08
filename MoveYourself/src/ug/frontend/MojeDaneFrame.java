@@ -23,7 +23,7 @@ public class MojeDaneFrame extends javax.swing.JFrame {
     public MojeDaneFrame() {
         initComponents();
         bd = new BazaDanych();
-        klient = bd.pobierzKlienta(3);
+        klient = bd.pobierzKlienta(StartFrame.idLogowanie);
         WyswietlMojeDane(pozycja);
        
     }
@@ -65,7 +65,6 @@ public class MojeDaneFrame extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -189,16 +188,6 @@ public class MojeDaneFrame extends javax.swing.JFrame {
         jLabel13.setForeground(new java.awt.Color(204, 0, 0));
         jLabel13.setText("Twoje dane");
 
-        jButton2.setBackground(new java.awt.Color(204, 0, 0));
-        jButton2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 11)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Przeglądaj zajęcia");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -232,14 +221,10 @@ public class MojeDaneFrame extends javax.swing.JFrame {
                         .addGap(186, 186, 186)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(tHaslo)
-                        .addComponent(tDurodzenia, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(tHaslo)
+                    .addComponent(tDurodzenia, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -291,9 +276,7 @@ public class MojeDaneFrame extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton_back, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26))
         );
 
@@ -318,7 +301,7 @@ public class MojeDaneFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_tImieActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        bd.modyfikujKlienta(3,tImie.getText(), tNazwisko.getText(), tEmail.getText(), tHaslo.getText(), tDurodzenia.getDate());
+        bd.modyfikujKlienta(StartFrame.idLogowanie,tImie.getText(), tNazwisko.getText(), tEmail.getText(), tHaslo.getText(), tDurodzenia.getDate());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void tEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tEmailActionPerformed
@@ -326,7 +309,7 @@ public class MojeDaneFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_tEmailActionPerformed
 
     private void jButton_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_backActionPerformed
-        StartFrame sf = new StartFrame();
+        KlientGlownaFrame sf = new KlientGlownaFrame();
         sf.setVisible(true);
         sf.pack();
         sf.setLocationRelativeTo(null);
@@ -343,15 +326,6 @@ public class MojeDaneFrame extends javax.swing.JFrame {
 
         System.exit(0);
     }//GEN-LAST:event_jLabel_closeMouseClicked
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        ZajeciaFrame zf = new ZajeciaFrame();
-        zf.setVisible(true);
-        zf.pack();
-        zf.setLocationRelativeTo(null);
-        zf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -392,7 +366,6 @@ public class MojeDaneFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton_back;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
