@@ -6,6 +6,7 @@
 package ug.frontend;
 
 import java.lang.System.Logger;
+import java.lang.System.Logger.Level;
 import java.text.SimpleDateFormat;
 import javax.swing.JFrame;
 import javax.swing.*;
@@ -24,8 +25,7 @@ public class RejestracjaFrame extends javax.swing.JFrame {
     public RejestracjaFrame() {
         initComponents();
          this.setLocationRelativeTo(null);
-         
- 
+
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -290,7 +290,6 @@ public class RejestracjaFrame extends javax.swing.JFrame {
     private void jLabel_closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_closeMouseClicked
 
         System.exit(0);
-
     }//GEN-LAST:event_jLabel_closeMouseClicked
 
     private void jTextField_surnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_surnameActionPerformed
@@ -298,9 +297,7 @@ public class RejestracjaFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField_surnameActionPerformed
 
     private void jButton_registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_registerActionPerformed
-        
-        boolean emailExists = false;
-        
+   
         String name = jTextField_name.getText();
         String surname = jTextField_surname.getText();
         String email = jTextField_email.getText();
@@ -341,12 +338,14 @@ public class RejestracjaFrame extends javax.swing.JFrame {
         }
         Connection con;
         CallableStatement cs;
-       
-        try {
-            con = DriverManager.getConnection("jdbc:sqlserver://localhost;databaseName=MoveYourself",
+        
+        
+        if (!checkEmail(email)) {
+        try {          
+            con = DriverManager.getConnection("jdbc:sqlserver://localhost;databaseName=MoveYourself2",
                     "s2232","s2232");
             cs = con.prepareCall("{call dbo.RejestrujKlienta(?,?,?,?,?)}");
-            
+
             cs.setString(1, name);
             cs.setString(2,surname);
             cs.setString(3,email);
@@ -354,23 +353,21 @@ public class RejestracjaFrame extends javax.swing.JFrame {
               if(bdate !=null)
                 {
                     cs.setString(5,bdate);
-                }
+                }              
              if(cs.executeUpdate() > 0)
-                {
+                {               
                 JOptionPane.showMessageDialog(null,"Gratulujemy! Rejestracja przebiegła poprawnie");
                 KlientGlownaFrame kgf = new KlientGlownaFrame();
                 kgf.setVisible(true);
                 kgf.pack();
                 kgf.setLocationRelativeTo(null);
                 kgf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                this.dispose(); 
-                
-                }
-
+                this.dispose();  
+                }              
         } catch (SQLException ex) {
              java.util.logging.Logger.getLogger(StartFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-
+        }   
+    }
         }   
     }//GEN-LAST:event_jButton_registerActionPerformed
 
@@ -422,8 +419,7 @@ public class RejestracjaFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RejestracjaFrame().setVisible(true);
-              
+                new RejestracjaFrame().setVisible(true);   
             }
         });
     }
@@ -450,8 +446,28 @@ public class RejestracjaFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField_name;
     private javax.swing.JTextField jTextField_surname;
     // End of variables declaration//GEN-END:variables
+    
+    public boolean checkEmail(String email)
+    {
+        ResultSet rs;
+        Connection con;
+        CallableStatement cs;
+        boolean email_exist = false;
 
-    private boolean login() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            con = DriverManager.getConnection("jdbc:sqlserver://localhost;databaseName=MoveYourself2",
+                    "s2232","s2232");
+            cs = con.prepareCall("{call dbo.sprawdzMail(?)}");
+            cs.setString(1, email);
+            rs = cs.executeQuery();
+            if(rs.next())
+           {
+               email_exist = true;
+               JOptionPane.showMessageDialog(null, "Ten email już jest zarejestrowany w naszej bazie.");
+           }
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(StartFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        return email_exist;
     }
 }

@@ -17,15 +17,11 @@ import ug.backend.Zajecia;
  */
 public class MojeDaneFrame extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MojeDaneFrame
-     */
     public MojeDaneFrame() {
         initComponents();
         bd = new BazaDanych();
         klient = bd.pobierzKlienta(StartFrame.idLogowanie);
-        WyswietlMojeDane(pozycja);
-       
+        WyswietlMojeDane(pozycja);    
     }
     
     public void WyswietlMojeDane(int pozycja){
@@ -67,7 +63,6 @@ public class MojeDaneFrame extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -358,8 +353,7 @@ public class MojeDaneFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MojeDaneFrame().setVisible(true);
-                
+                new MojeDaneFrame().setVisible(true);   
             }
         });
     }

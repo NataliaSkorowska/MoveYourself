@@ -33,12 +33,6 @@ public class StartFrame extends javax.swing.JFrame {
     public StartFrame() {
         initComponents();
         this.setLocationRelativeTo(null);
-        
-        //mzf = new MojeZajeciaFrame();
-        //mzf.setTitle("Moje zajęcia");
-        //mzf.setSize(640,480);
-        
-       
 
         zf = new ZajeciaFrame();
         zf.setTitle("Zajęcia");
@@ -304,15 +298,13 @@ public class StartFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_registerMouseClicked
 
     private void jButton_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_loginActionPerformed
-
+ 
         Connection con;
         CallableStatement cs, cs2;
-        
-        
+
         String email = jTextField_email.getText();
         String pass = String.valueOf(jPasswordField_login.getPassword());
-        
-       
+
         if(email.equals(""))
         {
             JOptionPane.showMessageDialog(null,"Proszę podać email");
@@ -325,7 +317,7 @@ public class StartFrame extends javax.swing.JFrame {
        
         try {
            
-            con = DriverManager.getConnection("jdbc:sqlserver://localhost;databaseName=MoveYourself",
+            con = DriverManager.getConnection("jdbc:sqlserver://localhost;databaseName=MoveYourself2",
                     "s2232","s2232");
             cs = con.prepareCall("{call login(?,?)}");
             
@@ -342,14 +334,13 @@ public class StartFrame extends javax.swing.JFrame {
             {       
                 Integer id = rs.getInt("klient_id");
                 idLogowanie = id;
-                MojeDaneFrame mdf = new MojeDaneFrame();
-                mdf.setVisible(true);
-                mdf.pack();
-                mdf.setLocationRelativeTo(null);
-                mdf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                KlientGlownaFrame kgf = new KlientGlownaFrame();
+                kgf.setVisible(true);
+                kgf.pack();
+                kgf.setLocationRelativeTo(null);
+                kgf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 this.dispose();
-            }
-          
+            }       
             else if(rs2.next())
             {
                 AdminGlownaFrame agf = new AdminGlownaFrame();
@@ -429,6 +420,6 @@ public class StartFrame extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordField_login;
     private javax.swing.JTextField jTextField_email;
     // End of variables declaration//GEN-END:variables
-private BazaDanych bd;
-public static int idLogowanie;
+    private BazaDanych bd;
+    public static int idLogowanie;
 }

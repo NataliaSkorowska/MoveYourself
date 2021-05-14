@@ -24,7 +24,7 @@ public class BazaDanych {
         try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             polaczenie  = DriverManager.getConnection(
-            "jdbc:sqlserver://localhost;databaseName=MoveYourself",
+            "jdbc:sqlserver://localhost;databaseName=MoveYourself2",
                     "s2232","s2232");
         }
         catch (Exception ex)
@@ -40,7 +40,7 @@ public class BazaDanych {
          try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             java.sql.Connection polaczenie = DriverManager.getConnection(
-           "jdbc:sqlserver://localhost;databaseName=MoveYourself",
+           "jdbc:sqlserver://localhost;databaseName=MoveYourself2",
                     "s2232","s2232");
             
             PreparedStatement ps =polaczenie.prepareStatement("{call dbo.pobierzZajecia}");
@@ -65,7 +65,7 @@ public class BazaDanych {
         try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             java.sql.Connection polaczenie = DriverManager.getConnection(
-            "jdbc:sqlserver://localhost;databaseName=MoveYourself",
+            "jdbc:sqlserver://localhost;databaseName=MoveYourself2",
                     "s2232","s2232");
             
             CallableStatement procedura = 
@@ -88,7 +88,7 @@ public class BazaDanych {
         try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             java.sql.Connection polaczenie = DriverManager.getConnection(
-            "jdbc:sqlserver://localhost;databaseName=MoveYourself",
+            "jdbc:sqlserver://localhost;databaseName=MoveYourself2",
                     "s2232","s2232");
             
              CallableStatement procedura = 
@@ -101,8 +101,6 @@ public class BazaDanych {
                rezultat.getString("zajecia_dzien_tygodnia"),
                rezultat.getString("zajecia_godzina")));
            }
-             
-
             polaczenie.close();
         }
         catch(Exception e){
@@ -116,7 +114,7 @@ public class BazaDanych {
         try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             java.sql.Connection polaczenie = DriverManager.getConnection(
-            "jdbc:sqlserver://localhost;databaseName=MoveYourself",
+            "jdbc:sqlserver://localhost;databaseName=MoveYourself2",
                     "s2232","s2232");
             
             CallableStatement procedura = 
@@ -139,7 +137,7 @@ public class BazaDanych {
           try{
            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             java.sql.Connection polaczenie = DriverManager.getConnection(
-           "jdbc:sqlserver://localhost;databaseName=MoveYourself",
+           "jdbc:sqlserver://localhost;databaseName=MoveYourself2",
                     "s2232","s2232");
           
            CallableStatement procedura = 
@@ -166,7 +164,7 @@ public class BazaDanych {
         try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             java.sql.Connection polaczenie = DriverManager.getConnection(
-           "jdbc:sqlserver://localhost;databaseName=MoveYourself",
+           "jdbc:sqlserver://localhost;databaseName=MoveYourself2",
                     "s2232","s2232");
             java.sql.Date dataUrodzenia = new java.sql.Date(klient_dUrodzenia.getTime());
             CallableStatement procedura = 
@@ -191,41 +189,18 @@ public class BazaDanych {
         try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             java.sql.Connection polaczenie = DriverManager.getConnection(
-           "jdbc:sqlserver://localhost;databaseName=MoveYourself",
+           "jdbc:sqlserver://localhost;databaseName=MoveYourself2",
                     "s2232","s2232");
             CallableStatement procedura = 
                     polaczenie.prepareCall("{call dbo.pobierzKlientów}");
-                    procedura.execute();
-            
+                    procedura.execute();           
             polaczenie.close();
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(null,"Błąd "+e.getMessage(),
                     "Błąd aplikacji", JOptionPane.ERROR_MESSAGE);
         }
-    }
-    
-     public void usunZajecia(String zajecia_nazwa){
-        try{
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            java.sql.Connection polaczenie = DriverManager.getConnection(
-            "jdbc:sqlserver://localhost;databaseName=MoveYourself",
-                    "s2232","s2232");
-            
-            CallableStatement procedura = 
-                    polaczenie.prepareCall("{call dbo.usunZajecia(?)}");
-                    procedura.setString(1,zajecia_nazwa);
-                    procedura.execute();
-            
-
-            polaczenie.close();
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(null,"Błąd "+e.getMessage(),
-                    "Błąd aplikacji", JOptionPane.ERROR_MESSAGE);
-        }
-    }
-    
+    }   
 }
 
 

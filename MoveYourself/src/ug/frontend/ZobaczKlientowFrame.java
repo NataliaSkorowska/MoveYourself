@@ -30,21 +30,18 @@ public class ZobaczKlientowFrame extends javax.swing.JFrame {
         java.sql.Connection con;
         DefaultTableModel model = (DefaultTableModel)jTable_members.getModel();
         CallableStatement cs;
-        ResultSet rs;
+        ResultSet rs;   
         
-        try{
-            
-            con = DriverManager.getConnection("jdbc:sqlserver://localhost;databaseName=MoveYourself",
+        try{         
+            con = DriverManager.getConnection("jdbc:sqlserver://localhost;databaseName=MoveYourself2",
                     "s2232","s2232");
             cs = con.prepareCall("{call dbo.pobierzKlientów()}");
             rs = cs.executeQuery();
             
-            
             while(rs.next())
             {
                 model.addRow(new Object[]{rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4), rs.getString(6)});
-            }
-            
+            }     
         }catch(Exception e)
         {
             JOptionPane.showMessageDialog(null,e);

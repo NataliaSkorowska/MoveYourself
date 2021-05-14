@@ -28,8 +28,7 @@ public class DodajKlientaFrame extends javax.swing.JFrame {
      */
     public DodajKlientaFrame() {
         initComponents();
-        bd = new BazaDanych();
-      
+        bd = new BazaDanych();    
     }
 
     /**
@@ -355,9 +354,10 @@ public class DodajKlientaFrame extends javax.swing.JFrame {
         Connection con;
         CallableStatement cs;
        
+        if (!checkEmail(email)) {
         try {
            
-            con = DriverManager.getConnection("jdbc:sqlserver://localhost;databaseName=MoveYourself",
+            con = DriverManager.getConnection("jdbc:sqlserver://localhost;databaseName=MoveYourself2",
                     "s2232","s2232");
             cs = con.prepareCall("{call dbo.RejestrujKlienta(?,?,?,?,?)}");
             
@@ -378,7 +378,7 @@ public class DodajKlientaFrame extends javax.swing.JFrame {
         } catch (SQLException ex) {
              java.util.logging.Logger.getLogger(StartFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-
+        }
         }   
     }//GEN-LAST:event_jButton_registerActionPerformed
 
@@ -462,7 +462,33 @@ public class DodajKlientaFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField_name;
     private javax.swing.JTextField jTextField_surname;
     // End of variables declaration//GEN-END:variables
-private BazaDanych bd;
+   private BazaDanych bd;
    private ArrayList <Klient> klient;
-private int pozycja;
+   private int pozycja;
+
+    public boolean checkEmail(String email)
+    {
+        ResultSet rs;
+        Connection con;
+        CallableStatement cs;
+        boolean email_exist = false;
+
+        try {
+            con = DriverManager.getConnection("jdbc:sqlserver://localhost;databaseName=MoveYourself2",
+                    "s2232","s2232");
+            cs = con.prepareCall("{call dbo.sprawdzMail(?)}");
+
+            cs.setString(1, email);
+            rs = cs.executeQuery();
+            if(rs.next())
+           {
+               email_exist = true;
+               JOptionPane.showMessageDialog(null, "Ten email już jest zarejestrowany w naszej bazie.");
+           }
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(StartFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        return email_exist;
+    }
 }
+

@@ -15,17 +15,12 @@ import ug.backend.*;
  */
 public class ZajeciaFrame extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ZajeciaFrame
-     */
     public ZajeciaFrame() {
         initComponents();
         bd = new BazaDanych();
         zajecia = bd.pobierzZajecia();
-        wyswietlZajecia(pozycja);
-        
-    }
-    
+        wyswietlZajecia(pozycja);        
+    }   
     public void wyswietlZajecia(int pozycja){
         bPoprzedni.setEnabled(true);
         bKolejny.setEnabled(true);
@@ -39,10 +34,8 @@ public class ZajeciaFrame extends javax.swing.JFrame {
     lZajecia.setText(z.getZajecia_nazwa());
     lInstruktor.setText(z.getZajecia_instruktor());
     lDzien.setText(z.getZajecia_dzien_tygodnia());
-    lGodzina.setText(z.getZajecia_godzina());
-    
+    lGodzina.setText(z.getZajecia_godzina());  
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -15,7 +15,6 @@ import ug.backend.Zajecia;
  * @author deerx
  */
 public class MojeZajeciaFrame extends javax.swing.JFrame {
-
     /**
      * Creates new form MojeZajeciaFrame
      */
@@ -39,8 +38,7 @@ public class MojeZajeciaFrame extends javax.swing.JFrame {
     lNazwa.setText(z.getZajecia_nazwa());
     lInstruktor.setText(z.getZajecia_instruktor());
     lDzien.setText(z.getZajecia_dzien_tygodnia());
-    lGodzina.setText(z.getZajecia_godzina());
-    
+    lGodzina.setText(z.getZajecia_godzina()); 
     }
 
     /**
@@ -72,6 +70,7 @@ public class MojeZajeciaFrame extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -193,6 +192,9 @@ public class MojeZajeciaFrame extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(204, 0, 51));
         jLabel6.setText("Godzina:");
 
+        jButton1.setBackground(new java.awt.Color(204, 0, 0));
+        jButton1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 11)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Wypisz");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -243,7 +245,7 @@ public class MojeZajeciaFrame extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(lNazwa))
@@ -281,7 +283,9 @@ public class MojeZajeciaFrame extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -293,7 +297,6 @@ public class MojeZajeciaFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel_minimizeMouseClicked
 
     private void jLabel_closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_closeMouseClicked
-
         System.exit(0);
     }//GEN-LAST:event_jLabel_closeMouseClicked
 
@@ -376,7 +379,7 @@ public class MojeZajeciaFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lInstruktor;
     private javax.swing.JLabel lNazwa;
     // End of variables declaration//GEN-END:variables
-private BazaDanych bd;
+    private BazaDanych bd;
     private ArrayList <Zajecia> mojeZajecia;
-private int pozycja;
+    private int pozycja;
 }

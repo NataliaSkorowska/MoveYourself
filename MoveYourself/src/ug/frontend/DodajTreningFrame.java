@@ -243,26 +243,20 @@ public class DodajTreningFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel_minimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_minimizeMouseClicked
-
-        this.setState(JFrame.ICONIFIED);
-
+    this.setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_jLabel_minimizeMouseClicked
 
     private void jLabel_closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_closeMouseClicked
-
-        System.exit(0);
-
+      System.exit(0);
     }//GEN-LAST:event_jLabel_closeMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
 
         String trainingName = jTextField_trainingName.getText();
         String instructor = jTextField_instructorName.getText();
         String day = jComboBox_day.getSelectedItem().toString();
         String hour = jComboBox_hour.getSelectedItem().toString();
-                
-        
+                    
         if(trainingName.equals(""))
         {
             JOptionPane.showMessageDialog(null,"Dodaj nazwę treningu");
@@ -271,14 +265,16 @@ public class DodajTreningFrame extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null,"Proszę podać imię i nazwisko instruktora");
         }
+        else
+        {
 
         PreparedStatement ps;        
-       Connection con;
+        Connection con;
         CallableStatement cs;
        
         try {
            
-            con = DriverManager.getConnection("jdbc:sqlserver://localhost;databaseName=MoveYourself",
+            con = DriverManager.getConnection("jdbc:sqlserver://localhost;databaseName=MoveYourself2",
                     "s2232","s2232");
             cs = con.prepareCall("{call dbo.dodajZajecia(?,?,?,?)}");
             
@@ -291,23 +287,12 @@ public class DodajTreningFrame extends javax.swing.JFrame {
                 {
                 JOptionPane.showMessageDialog(null,"Dodano nowe zajęcia o nazwie " + trainingName);                  
                 }
-
+             
         } catch(Exception e)
          {
              JOptionPane.showMessageDialog(null, e);
          }
-        
-        //try{          
-        
-          //   ps = BazaDanych.getConnection().prepareStatement(query);
-             
-            // ps.setString(1,trainingName);
-             //ps.setString(2,instructor);
-             //ps.setString(3,day);
-             //ps.setString(4,hour); 
-             //ps.executeUpdate();
-             //JOptionPane.showMessageDialog(null,"Dodano trening: " + trainingName);
-        
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField_trainingNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_trainingNameActionPerformed

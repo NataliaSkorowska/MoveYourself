@@ -40,9 +40,7 @@ public class ZobaczTreningiFrame extends javax.swing.JFrame {
     lInstruktor.setText(z.getZajecia_instruktor());
     lDzien.setText(z.getZajecia_dzien_tygodnia());
     lGodzina.setText(z.getZajecia_godzina());
-    
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -69,7 +67,6 @@ public class ZobaczTreningiFrame extends javax.swing.JFrame {
         lInstruktor = new javax.swing.JLabel();
         lDzien = new javax.swing.JLabel();
         lGodzina = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -194,17 +191,6 @@ public class ZobaczTreningiFrame extends javax.swing.JFrame {
         lGodzina.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
         lGodzina.setText("jLabel7");
 
-        jButton1.setBackground(new java.awt.Color(204, 0, 0));
-        jButton1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 11)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Usuń zajęcia");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -242,10 +228,6 @@ public class ZobaczTreningiFrame extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(lGodzina, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(213, 213, 213))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(117, 117, 117))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -269,9 +251,7 @@ public class ZobaczTreningiFrame extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(lGodzina))
-                .addGap(4, 4, 4)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton_back, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -324,14 +304,6 @@ public class ZobaczTreningiFrame extends javax.swing.JFrame {
         wyswietlZajecia(++pozycja);
     }//GEN-LAST:event_bKolejnyActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       bd.usunZajecia(lZajecia.getText());
-       zajecia = bd.pobierzZajecia();
-       pozycja=0;
-       wyswietlZajecia(pozycja);
-       
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -370,7 +342,6 @@ public class ZobaczTreningiFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bKolejny;
     private javax.swing.JButton bPoprzedni;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton_back;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
@@ -387,7 +358,7 @@ public class ZobaczTreningiFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lInstruktor;
     private javax.swing.JLabel lZajecia;
     // End of variables declaration//GEN-END:variables
-private BazaDanych bd;
+    private BazaDanych bd;
     private ArrayList <Zajecia> zajecia;
-private int pozycja;
+    private int pozycja;
 }
