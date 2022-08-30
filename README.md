@@ -1,4 +1,10 @@
 # MoveYourself
+## Spis treści
+* [Informacje wstępne](#Informacje-wstępne)
+* [Interfejs i funkcjonalności](#Interfejs-i-funkcjonalności)
+* [Technologie i narzędzia](#Technologie-i-narzędzia)
+
+## Informacje wstępne
 Aplikacja na zaliczenie przedmiotu "Programowanie aplikacji bazodanowych"
 
 Nazwa: Move Yourself
@@ -11,7 +17,8 @@ Opis:
 Move Yourself to program umożliwiający zarządzanie klientami, zajęciami i rezerwacjami dla siłowni.
 Aplikacja umożliwia zalogowanie się zarówno jako użytkownik jak i jako administrator systemu.
 
-Aplikacja zawiera następujące widoki:
+
+## Interfejs i funkcjonalności
 1. StartFrame - pierwszy ekran widoczny dla użytkownika, zawiera formularz logowania.
 
 ![StartFrame](./ReadmeIMG/StartFrame.png) 
@@ -59,3 +66,14 @@ Aplikacja zawiera następujące widoki:
 12. ZobaczRezerwacjeFrame - ukazuje listę obecnych rezerwacji dokonanych przez klientów.
 
 ![ZobaczRezerwacjeFrame](./ReadmeIMG/ZobaczRezerwacjeFrame.png) 
+
+
+## Technologie i narzędzia
+
+ ID | Nazwa |
+| ------- | -------|
+| 1 | NetBeans IDE|
+| 2 | JavaFx |
+| 2 | SQL Server Management Studio |
+| 3 | SQL jdbc | 
+| 4 | jcalendar |
